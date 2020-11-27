@@ -1,0 +1,46 @@
+<%- include("partials/header.ejs")%>
+
+<body>
+    <%- include('partials/navbar.ejs')%>
+    
+    <div class="container">
+        <br>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h3><%= one.title %></h3>
+                </div>
+                <div class="card-footer">
+                    <h5><%= one.description %></h5>
+                    <br>
+                </div>
+            </div>
+            <br>
+                <div class='card-header'>
+                    <h4>Respostas</h4>
+                </div>
+                <% allOne.forEach(all =>{%>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h5><%= all.body %></h5>
+                </div>
+            </div>
+                <% }) %>
+            
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <form method="POST" action="/salvarResposta">
+                        <label>Responda</label>
+                        <textarea name="response" placeholder="Digite aqui sua resposta" class="form-control"></textarea>
+                        <br>
+                        <input type="hidden" name='ask' value="<%= one.id %>">
+                        <button class='btn btn-primary'>Responder</button>
+                    </form>
+                </div>
+            </div>
+    </div>
+
+</body>
+<%- include('partials/footer.ejs')%>

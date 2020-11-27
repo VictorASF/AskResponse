@@ -1,0 +1,24 @@
+
+<%- include("partials/header.ejs")%>
+
+<body>
+    <%- include('partials/navbar.ejs')%>
+    
+    <div class="container">
+        <br>
+        <% asksModel.forEach(ask => {%>
+            <br>
+            <div class="card">
+                <div class="card-body">
+                    <h3><%= ask.title %></h3>
+                </div>
+                <div class="card-footer">
+                    <a class="btn btn-primary" href="/ask/<%= ask.id %>" >Responder</a>
+                </div>
+            </div>
+        <% }) %>
+
+    </div>
+
+</body>
+<%- include('partials/footer.ejs')%>
